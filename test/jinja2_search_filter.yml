@@ -1,0 +1,34 @@
+---
+- hosts: test
+  vars:
+    multiline_content: |
+      line1
+      line2
+      line3
+    multiline_verify: |
+      line1
+      line2
+      line3
+    singleline_verify: line1\nline2\nline3\n
+    incomplete_verify: line1\nline2
+    noise_verify: line1\nline2\nline3\nline4\n
+  tasks:
+    - name: Test multiline format for filter
+      assert:
+        that: multiline_content is search(multiline_verify)
+      ignore_errors: yes
+
+    - name: Test singleline format for filter
+      assert:
+        that: multiline_content is search(singleline_verify)
+      ignore_errors: yes
+
+    - name: Test incomplete format for filter
+      assert:
+        that: multiline_content is search(incomplete_verify)
+      ignore_errors: yes
+
+    - name: Test noise format for filter
+      assert:
+        that: multiline_content is search(noise_verify)
+      ignore_errors: yes
