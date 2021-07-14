@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  ubuntu18-04:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+      args:
+        version: 18.04
+    container_name: local-ubuntu-18-04
+    command: sleep
+
+  ubuntu20-04:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+      args:
+        version: 20.04
+    container_name: local-ubuntu-20-04
+    command: sleep

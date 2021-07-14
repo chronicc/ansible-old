@@ -1,0 +1,18 @@
+---
+- hosts: test
+  become: yes
+  vars:
+    bazelisk_version: 1.9.0
+    docker_compose_version: 1.29.2
+  tasks:
+    - name: Install bazelisk
+      get_url:
+        url: https://github.com/bazelbuild/bazelisk/releases/download/v{{bazelisk_version}}/bazelisk-linux-amd64
+        dest: /usr/local/bin/bazelisk
+        mode: "0755"
+
+    - name: Install docker-compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/{{docker_compose_version}}/docker-compose-Linux-x86_64
+        dest: /usr/local/bin/docker-compose
+        mode: "0755"
