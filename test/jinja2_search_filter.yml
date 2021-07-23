@@ -1,5 +1,6 @@
 ---
-- hosts: test
+- hosts: localhost
+  gather_facts: no
   vars:
     multiline_content: |
       line1
