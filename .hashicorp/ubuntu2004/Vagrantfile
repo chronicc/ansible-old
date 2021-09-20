@@ -1,0 +1,39 @@
+require_relative '../plugins/key_authorization'
+
+Vagrant.configure('2') do |config|
+
+  #### CONFIG ####
+  BOX_IMAGE = 'generic/ubuntu2004'
+  CPU = 4
+  HOSTNAME = 'ubuntu2004.vagrant.ansible'
+  MEMORY = 4096
+  #### /CONFIG #########
+
+  config.vm.provider "libvirt"
+
+  authorize_key_for_root config, '~/.ssh/id_rsa.pub'
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.manage_guest = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = false
+  config.vagrant.plugins = [
+    'vagrant-hostmanager',
+    'vagrant-libvirt',
+  ]
+
+  config.vm.define "#{HOSTNAME}" do |host|
+    host.vm.box = BOX_IMAGE
+    host.vm.network 'private_network', type: 'dhcp'
+    host.vm.hostname = "#{HOSTNAME}"
+  end
+
+  config.vm.provider :libvirt do |vm|
+    vm.cpus = CPU
+    vm.memory = MEMORY
+  end
+
+  config.vm.provision "shell",
+    inline: "apt update && DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y"
+
+end

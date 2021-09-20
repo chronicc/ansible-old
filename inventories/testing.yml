@@ -1,0 +1,36 @@
+all:
+  hosts:
+  children:
+
+    ## Provisioner Groups
+    ## Maintain the list of available hosts here
+    ##
+    local:
+      hosts:
+        127.0.0.1:
+          ansible_host: host.local.ansible
+          ansible_connection: local
+          ansible_python_interpreter: /usr/bin/python3
+    remote:
+      hosts:
+    docker:
+      hosts:
+        ubuntu1804.docker.ansible:
+          ansible_connection: docker
+          ansible_user: root
+        ubuntu2004.docker.ansible:
+          ansible_connection: docker
+          ansible_user: root
+    vagrant:
+      hosts:
+        ubuntu2004.vagrant.ansible:
+          ansible_connection: ssh
+          ansible_host: ubuntu2004.vagrant.ansible
+          ansible_user: root
+
+    ## Application Groups
+    ## Use the ansible_host declared in the provisioner section
+    ##
+    kubernetes_nodes:
+      hosts:
+        ubuntu2004.vagrant.ansible:

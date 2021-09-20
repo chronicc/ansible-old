@@ -1,0 +1,20 @@
+all:
+  hosts:
+  children:
+
+    ## Provisioner Groups
+    ## Maintain the list of available hosts here
+    ##
+    remote:
+      hosts:
+        vps1:
+          ansible_connection: ssh
+          ansible_host: vps1.chroni.cc
+          ansible_python_interpreter: /usr/bin/python3
+
+    ## Application Groups
+    ## Use the ansible_host declared in the provisioner section
+    ##
+    kubernetes_nodes:
+      hosts:
+        vps1:

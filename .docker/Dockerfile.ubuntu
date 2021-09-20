@@ -12,7 +12,8 @@ RUN apt update \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
 
-ADD docker-entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+ADD entrypoint /usr/local/bin/entrypoint
+RUN chmod +x /usr/local/bin/*
 
-ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
+ENTRYPOINT [ "entrypoint" ]
+

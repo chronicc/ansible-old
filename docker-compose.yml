@@ -2,19 +2,21 @@ version: '3.7'
 
 services:
   ubuntu18-04:
+    container_name: ubuntu1804.docker.ansible
+    hostname: ubuntu1804.docker.ansible
     build:
-      context: .
+      context: .docker
       dockerfile: Dockerfile.ubuntu
       args:
         version: 18.04
-    container_name: local-ubuntu-18-04
     command: sleep
 
   ubuntu20-04:
+    container_name: ubuntu2004.docker.ansible
+    hostname: ubuntu2004.docker.ansible
     build:
-      context: .
+      context: .docker
       dockerfile: Dockerfile.ubuntu
       args:
         version: 20.04
-    container_name: local-ubuntu-20-04
     command: sleep
