@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cc.chroni.ansible"
+version = "1.0.0"
+description = "Collection of productive and experimental ansible setups."
+authors = ["Thomas Steinert <hello@chroni.cc>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+ansible= "~2.9.0"
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+ansible-lint = "^5.0"
+docker = "^4.4"
+molecule = "^3.2"
+molecule-docker = "^0.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
