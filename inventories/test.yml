@@ -7,7 +7,7 @@ all:
     ##
     local:
       hosts:
-        127.0.0.1:
+        localhost:
           ansible_host: host.local.ansible
           ansible_connection: local
           ansible_python_interpreter: /usr/bin/python3
@@ -15,15 +15,29 @@ all:
       hosts:
     docker:
       hosts:
-        ubuntu1804.docker.ansible:
+        ubuntu1804.docker:
           ansible_connection: docker
+          ansible_host: ubuntu1804.docker.ansible
           ansible_user: root
-        ubuntu2004.docker.ansible:
+        ubuntu2004.docker:
           ansible_connection: docker
+          ansible_host: ubuntu2004.docker.ansible
           ansible_user: root
     vagrant:
       hosts:
-        ubuntu2004.vagrant.ansible:
+        centos7.vagrant:
+          ansible_connection: ssh
+          ansible_host: centos7.vagrant.ansible
+          ansible_user: root
+        centos8.vagrant:
+          ansible_connection: ssh
+          ansible_host: centos8.vagrant.ansible
+          ansible_user: root
+        ubuntu1804.vagrant:
+          ansible_connection: ssh
+          ansible_host: ubuntu1804.vagrant.ansible
+          ansible_user: root
+        ubuntu2004.vagrant:
           ansible_connection: ssh
           ansible_host: ubuntu2004.vagrant.ansible
           ansible_user: root
@@ -33,4 +47,4 @@ all:
     ##
     kubernetes_nodes:
       hosts:
-        ubuntu2004.vagrant.ansible:
+        ubuntu1804.vagrant:

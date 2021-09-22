@@ -20,12 +20,23 @@ To work with this repository, always start a poetry shell with `poetry shell`.
 
 This repository comes with an integrated test environment providing the necessary means for testing ansible against various distributions.
 
+For testing purposes, always use the `test.yml` inventory.
+
+### Container
+
+Container are small, consume few resources and are fast to start. They can be used for most test cases.
+
 * Start all containers: `docker-compose up -d --build`
 * Start a specific container: `docker-compose up -d --build <container_name>`
 * Stop all containers: `docker-compose down -v`
 * Stop a specific container: `docker-compose stop <container_name>`
 
-For testing purposes, always use the `test.yml` inventory.
+### Virtual Machines
+
+VMs can be used for test cases where containers are not suited for (e.g. ssh connection or kernel). Since VMs consume a lot of resources, you should never start all VMs at the same time.
+
+* Start a specific VM: `vagrant up <fqdn>`
+* Stop all VMs: `vagrant destroy -f`
 
 ## License
 
