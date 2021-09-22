@@ -25,6 +25,8 @@ This repository comes with an integrated test environment providing the necessar
 * Stop all containers: `docker-compose down -v`
 * Stop a specific container: `docker-compose stop <container_name>`
 
+For testing purposes, always use the `test.yml` inventory.
+
 ## License
 
 MIT

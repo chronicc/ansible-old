@@ -29,7 +29,7 @@ all:
           ansible_user: root
 
     ## Application Groups
-    ## Use the ansible_host declared in the provisioner section
+    ## Use the hosts declared in the provisioner section
     ##
     kubernetes_nodes:
       hosts:

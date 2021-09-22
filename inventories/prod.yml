@@ -13,7 +13,7 @@ all:
           ansible_python_interpreter: /usr/bin/python3
 
     ## Application Groups
-    ## Use the ansible_host declared in the provisioner section
+    ## Use the hosts declared in the provisioner section
     ##
     kubernetes_nodes:
       hosts:
