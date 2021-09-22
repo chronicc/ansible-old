@@ -12,8 +12,7 @@ RUN apt update \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
 
-ADD entrypoint /usr/local/bin/entrypoint
+COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/*
 
-ENTRYPOINT [ "entrypoint" ]
-
+ENTRYPOINT [ "entrypoint.sh" ]

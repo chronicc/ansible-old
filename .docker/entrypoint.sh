@@ -28,7 +28,6 @@ case $1 in
         ;;
     * )
         print_info "Startup // Command Execution '${@}'"
-        exec $@
+        exec "$@"
         ;;
 esac
-
