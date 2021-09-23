@@ -1,2 +1,0 @@
-vars.all.bazelisk_version: 1.10.1
-vars.all.docker_compose_version: 1.29.2
