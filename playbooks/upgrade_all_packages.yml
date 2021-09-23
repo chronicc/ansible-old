@@ -12,6 +12,15 @@
     - ansible_version.major is version('2', '==')
     - ansible_version.minor is version('9', '==')
 
+  - name: Remove unused dependency packages
+    apt:
+      autoremove: yes
+    when:
+    - ansible_os_family == 'Debian'
+    - ansible_pkg_mgr == 'apt'
+    - ansible_version.major is version('2', '==')
+    - ansible_version.minor is version('9', '==')
+
   - name: Upgrade RedHat based hosts
     yum:
       name: '*'
