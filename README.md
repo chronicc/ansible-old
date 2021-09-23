@@ -16,6 +16,10 @@ When poetry has been installed, install the rest of the requirements with `poetr
 
 To work with this repository, always start a poetry shell with `poetry shell`.
 
+## Quicklinks
+
+* [Ansible Cheatsheet](Cheatsheet.md)
+
 ## Test Environment
 
 This repository comes with an integrated test environment providing the necessary means for testing ansible against various distributions.
