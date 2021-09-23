@@ -1,0 +1,12 @@
+exclude_paths:
+- .docker
+- .git
+- .vagrant
+- .vagrant_plugins
+- docker-compose.yml
+
+kinds:
+- yaml: .ansible-lint
+
+skip_list:
+- package-latest
