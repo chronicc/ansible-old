@@ -5,30 +5,16 @@
   tasks:
   - name: Install bazelisk
     get_url:
-      url: https://github.com/bazelbuild/bazelisk/releases/download/v{{vars.all.bazelisk_version}}/bazelisk-linux-amd64
+      url: 'https://github.com/bazelbuild/bazelisk/releases/download/v{{ values.all.bazelisk_version }}/bazelisk-linux-amd64'
       dest: '{{ bin_dir }}/bazelisk'
       mode: '0755'
-
-  - name: Get bazelisk version
-    shell: 'bazelisk version | head -n1'
-    register: _package_version
-    changed_when: false
-
-  - name: Print bazelisk version
-    debug:
-      msg: '{{ _package_version.stdout }}'
+    when:
+    - ansible_version.string == values.all.ansible_version
 
   - name: Install docker-compose
     get_url:
-      url: https://github.com/docker/compose/releases/download/{{vars.all.docker_compose_version}}/docker-compose-Linux-x86_64
+      url: 'https://github.com/docker/compose/releases/download/{{ values.all.docker_compose_version }}/docker-compose-Linux-x86_64'
       dest: '{{ bin_dir }}/docker-compose'
       mode: '0755'
-
-  - name: Get docker-compose version
-    shell: 'docker-compose -v'
-    register: _package_version
-    changed_when: false
-
-  - name: Print docker-compose version
-    debug:
-      msg: '{{ _package_version.stdout }}'
+    when:
+    - ansible_version.string == values.all.ansible_version

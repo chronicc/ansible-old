@@ -9,8 +9,7 @@
     when:
     - ansible_os_family == 'Debian'
     - ansible_pkg_mgr == 'apt'
-    - ansible_version.major is version('2', '==')
-    - ansible_version.minor is version('9', '==')
+    - ansible_version.string == values.all.ansible_version
 
   - name: Remove unused dependency packages
     apt:
@@ -18,8 +17,7 @@
     when:
     - ansible_os_family == 'Debian'
     - ansible_pkg_mgr == 'apt'
-    - ansible_version.major is version('2', '==')
-    - ansible_version.minor is version('9', '==')
+    - ansible_version.string == values.all.ansible_version
 
   - name: Upgrade RedHat based hosts
     yum:
@@ -28,5 +26,4 @@
     when:
     - ansible_os_family == 'RedHat'
     - ansible_pkg_mgr == 'yum'
-    - ansible_version.major is version('2', '==')
-    - ansible_version.minor is version('9', '==')
+    - ansible_version.string == values.all.ansible_version

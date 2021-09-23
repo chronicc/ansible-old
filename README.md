@@ -1,6 +1,6 @@
 # chroni.cc Ansible
 
-Collection of productive and experimental ansible setups.
+Collection of productive and experimental Ansible setups.
 
 ## Requirements
 
@@ -22,7 +22,7 @@ To work with this repository, always start a poetry shell with `poetry shell`.
 
 ## Test Environment
 
-This repository comes with an integrated test environment providing the necessary means for testing ansible against various distributions.
+This repository comes with an integrated test environment providing the necessary means for testing Ansible against various distributions.
 
 For testing purposes, always use the `test.yml` inventory.
 
