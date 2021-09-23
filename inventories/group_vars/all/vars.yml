@@ -1,16 +1,38 @@
 ---
 values:
   all:
+    ## Global Ansible Configuration
+    ## Configure here variables that are related to how Ansible works.
+    ##
+
     ## The Ansible version which must be used for this repository.
     ## If you change this variable, ensure playbooks, collections and roles
     ## are compatible with the new version.
     ##
     ansible_version: 2.9.26
 
-    ## The bazelisk version that will be installed on all hosts.
+    ## Global Package Configuration
+    ## Configure here how packages are installed.
     ##
-    bazelisk_version: 1.10.1
 
-    ## The docker-compose version that will be installed on all hosts.
+    ## bazelisk
     ##
-    docker_compose_version: 1.29.2
+    bazelisk:
+      path: /usr/local/bin/bazelisk
+      version: 1.10.1
+
+    ## docker-compose
+    ##
+    docker_compose:
+      path: /usr/local/bin/docker-compose
+      version: 1.29.2
+
+
+## The list of packages that can be installed.
+## This file contains all possible packages and serves as starting point.
+## Overwrite this configuration in the host vars.
+## Possible values are 'present' and 'absent'.
+##
+packages:
+  bazelisk: absent
+  docker_compose: absent
