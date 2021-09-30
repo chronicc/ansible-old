@@ -1,38 +1,29 @@
 ---
-values:
-  all:
-    ## Global Ansible Configuration
-    ## Configure here variables that are related to how Ansible works.
-    ##
-
-    ## The Ansible version which must be used for this repository.
-    ## If you change this variable, ensure playbooks, collections and roles
-    ## are compatible with the new version.
-    ##
-    ansible_version: 2.9.26
-
-    ## Global Package Configuration
-    ## Configure here how packages are installed.
-    ##
-
-    ## bazelisk
-    ##
-    bazelisk:
-      path: /usr/local/bin/bazelisk
-      version: 1.10.1
-
-    ## docker-compose
-    ##
-    docker_compose:
-      path: /usr/local/bin/docker-compose
-      version: 1.29.2
-
-
-## The list of packages that can be installed.
-## This file contains all possible packages and serves as starting point.
-## Overwrite this configuration in the host vars.
-## Possible values are 'present' and 'absent'.
+## The Ansible version which must be used for this repository.
+## If you change this variable, ensure playbooks, collections
+## and roles are compatible with the new version.
 ##
-packages:
-  bazelisk: absent
-  docker_compose: absent
+used_ansible_version: 2.9.26
+
+
+## Binary Configuration
+## Path    : The location where the binary is installed.
+## State   : The binary is whether 'present' or 'absent'.
+## Version : The version of the binary that is installed.
+## Url     : A concatenated string where the binary is downloaded.
+##
+binaries_bazelisk_path: /usr/local/bin/bazelisk
+binaries_bazelisk_state: absent
+binaries_bazelisk_version: &bazelisk_version 1.10.1
+binaries_bazelisk_url:
+- https://github.com/bazelbuild/bazelisk/releases/download/v
+- *bazelisk_version
+- /bazelisk-linux-amd64
+
+binaries_docker_compose_path: /usr/local/bin/docker-compose
+binaries_docker_compose_state: absent
+binaries_docker_compose_version: &docker_compose_version 1.29.2
+binaries_docker_compose_url:
+- https://github.com/docker/compose/releases/download/
+- *docker_compose_version
+- /docker-compose-Linux-x86_64

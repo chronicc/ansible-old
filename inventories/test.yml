@@ -1,51 +1,46 @@
 ---
 all:
-  hosts:
   children:
+    test:
+      children:
 
-    ## Provisioner Groups
-    ## Maintain the list of available hosts here
-    ##
-    local:
-      hosts:
-        localhost:
-          ansible_host: host.local.ansible
-          ansible_connection: local
-          ansible_python_interpreter: /usr/bin/python3
-    remote:
-      hosts:
-    docker:
-      hosts:
-        ubuntu1804.docker:
-          ansible_connection: docker
-          ansible_host: ubuntu1804.docker.ansible
-          ansible_user: root
-        ubuntu2004.docker:
-          ansible_connection: docker
-          ansible_host: ubuntu2004.docker.ansible
-          ansible_user: root
-    vagrant:
-      hosts:
-        centos7.vagrant:
-          ansible_connection: ssh
-          ansible_host: centos7.vagrant.ansible
-          ansible_user: root
-        centos8.vagrant:
-          ansible_connection: ssh
-          ansible_host: centos8.vagrant.ansible
-          ansible_user: root
-        ubuntu1804.vagrant:
-          ansible_connection: ssh
-          ansible_host: ubuntu1804.vagrant.ansible
-          ansible_user: root
-        ubuntu2004.vagrant:
-          ansible_connection: ssh
-          ansible_host: ubuntu2004.vagrant.ansible
-          ansible_user: root
+        ## Provisioner Groups
+        ## Maintain the list of available hosts here
+        ##
+        remote:
+          hosts:
+        docker:
+          hosts:
+            ubuntu1804.docker:
+              ansible_connection: docker
+              ansible_host: ubuntu1804.docker.ansible
+              ansible_user: root
+            ubuntu2004.docker:
+              ansible_connection: docker
+              ansible_host: ubuntu2004.docker.ansible
+              ansible_user: root
+        vagrant:
+          hosts:
+            centos7.vagrant:
+              ansible_connection: ssh
+              ansible_host: centos7.vagrant.ansible
+              ansible_user: root
+            centos8.vagrant:
+              ansible_connection: ssh
+              ansible_host: centos8.vagrant.ansible
+              ansible_user: root
+            ubuntu1804.vagrant:
+              ansible_connection: ssh
+              ansible_host: ubuntu1804.vagrant.ansible
+              ansible_user: root
+            ubuntu2004.vagrant:
+              ansible_connection: ssh
+              ansible_host: ubuntu2004.vagrant.ansible
+              ansible_user: root
 
-    ## Application Groups
-    ## Use the hosts declared in the provisioner section
-    ##
-    kubernetes_nodes:
-      hosts:
-        ubuntu1804.vagrant:
+        ## Application Groups
+        ## Use the hosts declared in the provisioner section
+        ##
+        kubernetes_nodes:
+          hosts:
+            ubuntu1804.vagrant:

@@ -1,0 +1,19 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install bazelisk
+    get_url:
+      url: '{{ binaries_bazelisk_url | join("") }}'
+      dest: '{{ binaries_bazelisk_path }}'
+      mode: '0755'
+    when:
+    - binaries_bazelisk_state == 'present'
+    - ansible_version.string == used_ansible_version
+
+  - name: Uninstall bazelisk
+    file:
+      path: '{{ binaries_bazelisk_path }}'
+      state: absent
+    when:
+    - binaries_bazelisk_state == 'absent'
+    - ansible_version.string == used_ansible_version

@@ -1,27 +1,28 @@
 ---
 all:
-  hosts:
   children:
+    prod:
+      children:
 
-    ## Provisioner Groups
-    ## Maintain the list of available hosts here
-    ##
-    local:
-      hosts:
-        localhost:
-          ansible_host: host.local.ansible
-          ansible_connection: local
-          ansible_python_interpreter: /usr/bin/python3
-    remote:
-      hosts:
-        vps1:
-          ansible_connection: ssh
-          ansible_host: vps1.chroni.cc
-          ansible_python_interpreter: /usr/bin/python3
+        ## Provisioner Groups
+        ## Maintain the list of available hosts here
+        ##
+        local:
+          hosts:
+            localhost:
+              ansible_host: host.local.ansible
+              ansible_connection: local
+              ansible_python_interpreter: /usr/bin/python3
+        remote:
+          hosts:
+            vps1:
+              ansible_connection: ssh
+              ansible_host: vps1.chroni.cc
+              ansible_python_interpreter: /usr/bin/python3
 
-    ## Application Groups
-    ## Use the hosts declared in the provisioner section
-    ##
-    kubernetes_nodes:
-      hosts:
-        vps1:
+        ## Application Groups
+        ## Use the hosts declared in the provisioner section
+        ##
+        kubernetes_nodes:
+          hosts:
+            vps1:
