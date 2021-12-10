@@ -51,8 +51,6 @@ Vagrant.configure('2') do |config|
       vm.cpus = CENTOS7_CPU
       vm.memory = CENTOS7_MEMORY
     end
-    host.vm.provision "shell",
-      inline: "yum upgrade -y"
   end
 
 
@@ -65,8 +63,6 @@ Vagrant.configure('2') do |config|
       vm.cpus = CENTOS8_CPU
       vm.memory = CENTOS8_MEMORY
     end
-    host.vm.provision "shell",
-      inline: "yum upgrade -y"
   end
 
 
@@ -80,8 +76,6 @@ Vagrant.configure('2') do |config|
       vm.cpus = UBUNTU1804_CPU
       vm.memory = UBUNTU1804_MEMORY
     end
-    host.vm.provision "shell",
-      inline: "apt update && DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y"
   end
 
 
@@ -95,8 +89,6 @@ Vagrant.configure('2') do |config|
       vm.cpus = UBUNTU2004_CPU
       vm.memory = UBUNTU2004_MEMORY
     end
-    host.vm.provision "shell",
-      inline: "apt update && DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y"
   end
 
 end
