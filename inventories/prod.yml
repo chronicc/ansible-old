@@ -19,6 +19,10 @@ all:
               ansible_connection: ssh
               ansible_host: vps1.chroni.cc
               ansible_python_interpreter: /usr/bin/python3
+            vps2:
+              ansible_connection: ssh
+              ansible_host: vps2.chroni.cc
+              ansible_python_interpreter: /usr/bin/python3
 
         ## Application Groups
         ## Use the hosts declared in the provisioner section
@@ -26,3 +30,5 @@ all:
         kubernetes_nodes:
           hosts:
             vps1:
+            vps2:
+
