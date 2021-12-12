@@ -1,2 +1,4 @@
+---
+
 - import_playbook: binary_bazelisk.yml
 - import_playbook: binary_docker_compose.yml
