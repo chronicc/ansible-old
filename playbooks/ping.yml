@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: "{{ used_ansible_hosts | default('all') }}"
   become: yes
   gather_facts: no
   tasks:

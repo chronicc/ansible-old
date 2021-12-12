@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: "{{ used_ansible_hosts | default('all') }}"
   become: yes
   tasks:
   - name: Upgrade Debian based hosts
