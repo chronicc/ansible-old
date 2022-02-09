@@ -1,0 +1,16 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+    animals:
+      dog: bark
+      cat: meow
+
+  tasks:
+    - name: Check for available key
+      assert:
+        that: animals.dog is defined
+      ignore_errors: yes
+
+    - name: Check for unavailable key
+      assert:
+        that: animals.stone is not defined
