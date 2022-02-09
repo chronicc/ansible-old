@@ -1,0 +1,8 @@
+---
+
+- src: geerlingguy.containerd
+  version: 1.2.0
+- src: geerlingguy.kubernetes
+  version: 7.1.0
+- src: geerlingguy.swap
+  version: 1.0.2

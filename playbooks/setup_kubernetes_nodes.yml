@@ -1,0 +1,29 @@
+---
+
+- hosts: kubernetes_nodes
+  become: yes
+  pre_tasks:
+  ## fix preconditions which are not yet reflected by geerlingguy.kubernetes
+  ## issue: https://github.com/geerlingguy/ansible-role-kubernetes/issues/92
+  ##
+  - name: Ensure br_netfilter is enabled
+    modprobe:
+      name: br_netfilter
+      state: present
+
+  # - name: Let iptables see bridged traffic
+  #   sysctl:
+  #     name: net.ipv4.ip_forward
+  #     value: '1'
+  #     state: present
+
+  - name: Ensure Reverse Path Filtering is active
+    sysctl:
+      name: net.ipv4.conf.all.rp_filter
+      value: '1'
+      state: present
+
+  roles:
+  - geerlingguy.swap
+  - geerlingguy.containerd
+  - geerlingguy.kubernetes

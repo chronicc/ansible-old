@@ -29,6 +29,4 @@ all:
         ##
         kubernetes_nodes:
           hosts:
-            vps1:
             vps2:
-

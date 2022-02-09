@@ -44,3 +44,4 @@ all:
         kubernetes_nodes:
           hosts:
             ubuntu1804.vagrant:
+            ubuntu2004.vagrant:

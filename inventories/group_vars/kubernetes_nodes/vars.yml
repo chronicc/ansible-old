@@ -1,0 +1,20 @@
+---
+
+kubernetes_allow_pods_on_master: true
+kubernetes_packages:
+- name: kubelet
+  state: latest
+- name: kubectl
+  state: latest
+- name: kubeadm
+  state: latest
+- name: kubernetes-cni
+  state: latest
+kubernetes_pod_network:
+  cni: 'calico'
+  cidr: '192.168.0.0/16'
+kubernetes_role: 'master'
+kubernetes_version: '1.21'
+kubernetes_version_rhel_package: '1.21.2'
+
+swap_file_state: absent
