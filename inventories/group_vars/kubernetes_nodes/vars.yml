@@ -1,20 +1,25 @@
 ---
 
 kubernetes_allow_pods_on_master: true
+kubernetes_config_init_configuration:
+  localAPIEndpoint:
+    advertiseAddress: "{{ ansible_default_ipv4.address }}"
+  nodeRegistration:
+    name: "{{ ansible_hostname }}"
 kubernetes_packages:
 - name: kubelet
-  state: latest
+  state: present
 - name: kubectl
-  state: latest
+  state: present
 - name: kubeadm
-  state: latest
+  state: present
 - name: kubernetes-cni
-  state: latest
+  state: present
 kubernetes_pod_network:
   cni: 'calico'
   cidr: '192.168.0.0/16'
 kubernetes_role: 'master'
-kubernetes_version: '1.21'
-kubernetes_version_rhel_package: '1.21.2'
+kubernetes_version: '1.20'
+kubernetes_version_rhel_package: '1.20.15'
 
 swap_file_state: absent
