@@ -11,11 +11,11 @@
       name: br_netfilter
       state: present
 
-  # - name: Let iptables see bridged traffic
-  #   sysctl:
-  #     name: net.ipv4.ip_forward
-  #     value: '1'
-  #     state: present
+  - name: Let iptables see bridged traffic
+    sysctl:
+      name: net.ipv4.ip_forward
+      value: '1'
+      state: present
 
   - name: Ensure Reverse Path Filtering is active
     sysctl:
